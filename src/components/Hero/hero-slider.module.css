@@ -1,0 +1,109 @@
+.heroSection {
+  width: 100%;
+  color: var(--white-color);
+  padding-top: 112px;
+  padding-bottom: 108px;
+}
+
+.bgImg1 {
+  background-image: linear-gradient(
+      var(--hero-backgroundd-color),
+      var(--hero-backgroundd-color)
+    ),
+    url('../../project-folder/images/photo_2023-11-28_09-57-32.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--dark-color);
+}
+.bgImg2 {
+  background-image: linear-gradient(
+      var(--hero-backgroundd-color),
+      var(--hero-backgroundd-color)
+    ),
+    url('../../project-folder/images/photo_2023-11-28_09-57-43.jpg');
+}
+
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+.heroTitle {
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.07;
+  text-align: center;
+  width: 80%;
+}
+.heroButton {
+  background-color: var(--primary-brand-color);
+  color: var(--white-color);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  border: 0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 16px 32px;
+
+  transition: background-color var(--transition-250);
+}
+.heroButton:hover,
+.heroButton:focus {
+  background-color: var(--pressed-state-color);
+}
+@media screen and (max-width: 768px) {
+  .heroSection {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .heroSection {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+  .heroTitle {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.11;
+    text-align: center;
+    text-transform: capitalize;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .heroSection {
+    padding-top: 112px;
+    padding-bottom: 108px;
+  }
+  .heroTitle {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.07;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .heroSection {
+    padding-top: 188px;
+    padding-bottom: 188px;
+  }
+  .heroTitle {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.07;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+}

@@ -1,0 +1,18 @@
+:root {
+  --primary-brand-color: rgb(150, 149, 145);
+  --pressed-state-color: rgb(132, 131, 127);
+  --dark-color: rgba(46, 47, 66, 1);
+  --success-color: rgba(49, 208, 170, 1);
+  --text-color: rgba(67, 68, 85, 1);
+  --subtle-text-color: rgba(142, 143, 153, 1);
+  --accent-color: rgba(231, 233, 252, 1);
+  --light-color: rgba(244, 244, 253, 1);
+  --modal-overlay-color: rgba(46, 47, 66, 0.4);
+  --hero-backgroundd-color: rgba(46, 47, 66, 0.7);
+  --transition-250: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --white-color: rgb(255, 255, 255);
+  --primary-animation-duration: 200ms;
+  --color-modal-background: rgb(179, 175, 167);
+  --color-accent-primary: rgb(152, 143, 143);
+  --color-gray-pale-alpha050: rgba(5, 5, 5, 0.579);
+}

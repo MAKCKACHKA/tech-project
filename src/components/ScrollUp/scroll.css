@@ -1,0 +1,91 @@
+.animate {
+  -webkit-animation: animatezoom var(--primary-animation-duration) forwards;
+  animation: animatezoom var(--primary-animation-duration) forwards;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-reverse {
+  -webkit-animation: animatezoom-reverse var(--primary-animation-duration)
+    forwards;
+  animation: animatezoom-reverse var(--primary-animation-duration) forwards;
+}
+
+@-webkit-keyframes animatezoom-reverse {
+  from {
+    -webkit-transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(0);
+  }
+}
+
+@keyframes animatezoom-reverse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+#roll_back {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--color-modal-background);
+  /* background-color: #161616; */
+  border-radius: 100%;
+  border: 3px solid var(--color-accent-primary);
+  padding: 8px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* z-index: 3; */
+  color: var(--color-accent-primary);
+  font-weight: 700;
+  font-size: 28px;
+  /* opacity: 0.8; */
+  z-index: 5;
+  transition: color var(--transition-250);
+  width: 50px;
+  height: 50px;
+}
+
+.arrow-up:hover {
+  opacity: 1;
+  scale: 1.1;
+}
+.arrow-up:focus:hover {
+  background-color: var(--pressed-state-color);
+}
+.arrow-up:focus:hover .arrow-up {
+  color: var(--color-modal-background);
+}
+.arrow-up {
+  transition: color var(--transition-250);
+  position: absolute;
+  transform: translateX(0%) translateY(8%);
+  stroke: currentColor;
+  color: var(--color-accent-primary);
+  text-align: center;
+  align-self: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
