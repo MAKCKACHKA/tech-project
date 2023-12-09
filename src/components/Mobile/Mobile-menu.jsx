@@ -25,7 +25,7 @@ export default function Mobile({ setisMobile, isMobile }) {
           <ul className="mobile-navigation-list">
             <li className="mobile-navigation-link">
               <Link
-                to="/react-parfume/"
+                to="/tech-project/"
                 end="true"
                 className="nav-link"
                 onClick={() => setisMobile(false)}
@@ -35,7 +35,7 @@ export default function Mobile({ setisMobile, isMobile }) {
             </li>
             <li className="mobile-navigation-link">
               <Link
-                to="/react-parfume/catalog"
+                to="/tech-project/catalog"
                 end="true"
                 className="nav-link"
                 onClick={() => setisMobile(false)}

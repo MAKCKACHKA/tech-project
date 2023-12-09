@@ -1,6 +1,6 @@
 :root {
-  --primary-brand-color: rgb(150, 149, 145);
-  --pressed-state-color: rgb(132, 131, 127);
+  --primary-brand-color: #3470ff;
+  --pressed-state-color: rgba(52, 112, 255, 1);
   --dark-color: rgba(46, 47, 66, 1);
   --success-color: rgba(49, 208, 170, 1);
   --text-color: rgba(67, 68, 85, 1);

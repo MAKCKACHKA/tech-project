@@ -19,7 +19,7 @@
   left: 13px;
 }
 
-.cartIcon {
+/* .cartIcon {
   width: 24px;
   height: 24px;
   transition: color var(--transition-250);
@@ -31,6 +31,21 @@
 .cartIcon:focus {
   align-self: center;
   color: var(--pressed-state-color);
+} */
+.active {
+  stroke-opacity: 0.8;
+  fill: none;
+  width: 18px;
+  height: 18px;
+  transition: color var(--transition-250);
+  vertical-align: middle;
+  stroke: rgba(52, 112, 255, 1);
+  fill: rgba(52, 112, 255, 1);
+  color: rgba(52, 112, 255, 1);
+}
+.active:hover,
+.active:focus {
+  cursor: pointer;
 }
 
 .container {

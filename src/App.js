@@ -29,20 +29,28 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import Wrapper from './components/Wrapper/Wrapper';
-import Buy from './pages/Buy';
+import Favorite from './pages/Buy';
 
 import './styles/main.css';
 import './styles/root.css';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCars } from 'redux with mockapi/operations';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
   return (
     <div className="App">
       <Routes>
-        <Route path="/react-parfume/" element={<Wrapper />}>
+        <Route path="/tech-project/" element={<Wrapper />}>
           <Route index element={<Home />} />
           <Route path="catalog" element={<Catalog />} />
           {/* <Route path="catalog:id" element={<Catalog />} /> */}
-          <Route path="buy" element={<Buy />} />
+          <Route path="buy" element={<Favorite />} />
         </Route>
       </Routes>
     </div>

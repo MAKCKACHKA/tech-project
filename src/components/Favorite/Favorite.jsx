@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import css from './shoping.module.css';
+import css from './favorite.module.css';
 import { IoMdClose } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeProduct, increase, decrease } from 'redux/parfums/shopingSlice';

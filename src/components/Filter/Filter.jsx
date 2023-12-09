@@ -18,9 +18,6 @@ export default function Filter() {
   const onChange = event => {
     setText(event.target.value);
   };
-  const disabled = React.useMemo(() => {
-    return !data.some(d => d.label === text);
-  }, [text]);
 
   return (
     <form
