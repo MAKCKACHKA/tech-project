@@ -1,0 +1,45 @@
+.addToCart {
+  background-color: transparent;
+  border: 0;
+  position: relative;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  z-index: 10;
+}
+
+.addToCartIcon {
+  stroke: white;
+  stroke-opacity: 0.8;
+  fill: none;
+  width: 18px;
+  height: 18px;
+  transition: fill var(--transition-250);
+  vertical-align: middle;
+}
+.addToCart:hover .addToCartIcon {
+  fill: rgba(52, 112, 255, 1);
+}
+.addToCart:hover,
+.addToCart:focus {
+  cursor: pointer;
+}
+.active {
+  stroke-opacity: 0.8;
+  fill: none;
+  width: 18px;
+  height: 18px;
+  transition: color var(--transition-250);
+  vertical-align: middle;
+  stroke: rgba(52, 112, 255, 1);
+  fill: rgba(52, 112, 255, 1);
+  color: rgba(52, 112, 255, 1);
+}
+.active:hover,
+.active:focus {
+  cursor: pointer;
+}

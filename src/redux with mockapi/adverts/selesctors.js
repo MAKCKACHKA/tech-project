@@ -8,9 +8,11 @@ export const selectError = state => state.adverts.adverts.error;
 
 export const selectFilter = state => state.adverts.filter;
 
-export const selectName = state => state.contactInfo.name;
+// export const selectName = state => state.contactInfo.name;
 
-export const selectNumber = state => state.contactInfo.number;
+// export const selectNumber = state => state.contactInfo.number;
+
+export const selectFavorite = state => state.favorite.favorite;
 
 // export const selectFilteredContacts = createSelector(
 //   [selectContacts],

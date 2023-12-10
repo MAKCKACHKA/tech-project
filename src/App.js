@@ -23,7 +23,7 @@
 // };
 
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 // import { lazy, useState } from "react";
 
 import Home from './pages/Home';
@@ -51,6 +51,7 @@ function App() {
           <Route path="catalog" element={<Catalog />} />
           {/* <Route path="catalog:id" element={<Catalog />} /> */}
           <Route path="buy" element={<Favorite />} />
+          <Route path="*" element={<Navigate raplce to="/tech-project" />} />
         </Route>
       </Routes>
     </div>

@@ -1,86 +1,88 @@
 import React, { useEffect } from 'react';
 
-import css from './favorite.module.css';
-import { IoMdClose } from 'react-icons/io';
+import css from './products.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeProduct, increase, decrease } from 'redux/parfums/shopingSlice';
+import { selectFavorite } from 'redux with mockapi/adverts/selesctors';
+import { removeProduct } from 'redux with mockapi/adverts/favoriteSlice';
+import { SvgLikeActive, SvgLine } from 'project-folder/Svg';
+import { ToastContainer, toast } from 'react-toastify';
 
-export default function Shoping({ sum, setSum }) {
+export default function FavoriteList({ sum, setSum }) {
   const dispatch = useDispatch();
-  const cart = useSelector(state => state.cart.items);
+  const favorite = useSelector(selectFavorite);
+  const Removed = () => toast('Car removed from favorites!');
 
-  const handleDelete = id => {
+  useEffect(() => {
+    console.log(favorite);
+  }, [favorite]);
+
+  const handleRemove = id => {
     dispatch(removeProduct(id));
   };
 
-  const increaseR = id => {
-    dispatch(increase(id));
-  };
-
-  const decreaseR = id => {
-    dispatch(decrease(id));
-  };
-  useEffect(() => {
-    const newSum = cart.reduce((acc, product, index) => {
-      const productPrice = !isNaN(product.counter * 100)
-        ? product.counter * 100
-        : 0;
-      return acc + productPrice;
-    }, 0);
-
-    setSum(newSum);
-  }, [cart, setSum]);
-
   return (
-    <div>
-      <ul id="products" className={css.listGroup}>
-        {cart ? (
-          cart.map((product, index) => (
-            <li key={product.code} id={product.code} className={css.groupItem}>
-              <img className={css.itemImage} src={product.image} alt="" />
-              <div className={css.caption}>
-                <span className={css.itemInfo}>
-                  <h4 className={css.itemHeading}>{product.name}</h4>
-                  <button
-                    className={css.delBtn}
-                    type="button"
-                    onClick={() => handleDelete(product.code)}
-                  >
-                    <IoMdClose className={css.closeIcon} />
-                  </button>
-                </span>
-                <span className={css.itemInfo}>
-                  <p className={css.lead}>{product.counter * 100} грн.</p>
-                  <div className={css.counter}>
-                    <button
-                      onClick={() => {
-                        increaseR(product.code);
-                      }}
-                      className={css.counterButton}
-                    >
-                      +
-                    </button>
-                    {/* <p className={css.counterValue}>{counters[index]}</p> */}
-                    <p className={css.counterValue}>{product.counter}</p>
+    <>
+      <ToastContainer />
+      <ul className={css.ProductList}>
+        {favorite.map(car => (
+          <li key={car.id} className={css.ProductListItem}>
+            <div className={css.imgWrapper}>
+              <button
+                type="button"
+                className={css.addToCart}
+                onClick={() => {
+                  handleRemove(car.id);
+                  Removed();
+                }}
+              >
+                {/* <FiShoppingCart className={css.addToCartIcon} /> */}
+                {/* <SvgLike /> */}
+                <SvgLikeActive />
+              </button>
 
-                    <button
-                      onClick={() => decreaseR(product.code)}
-                      className={css.counterButton}
-                    >
-                      -
-                    </button>
-                  </div>
-                </span>
+              <div className={css.prodImg}>
+                <img src={car.img} alt={car.make + ' ' + car.model} />
               </div>
-            </li>
-          ))
-        ) : (
-          <p>loading</p>
-        )}
-      </ul>
-      <p className={css.Sum}>
-        Загалом: <span>{sum} грн.</span>
-      </p>
-    </div>
+            </div>
+            <div className={css.ProductText}>
+              <div className={css.TitleContainer}>
+                <h3 className={css.ProductItemTitle}>
+                  {car.make}{' '}
+                  <span className={css.TitleModel}>{car.model},</span>{' '}
+                  {car.year}
+                </h3>
+                <h4 className={css.TitlePrice}>{car.rentalPrice}</h4>
+              </div>
+              <div className={css.TextContainer}>
+                <p className={css.ProductInfo}>
+                  {car.address.split(',').map(part => part.trim())[1]}
+                </p>
+                <SvgLine />
+                <p className={css.ProductInfo}>
+                  {car.address.split(',').map(part => part.trim())[2]}
+                </p>{' '}
+                <SvgLine />
+                <p className={css.ProductInfo}>{car.rentalCompany}</p>{' '}
+                <SvgLine />
+                {/* <p className={css.ProductInfo}>{car.rentalCompany},</p> */}
+                <p className={css.ProductInfo}>{car.type}</p> <SvgLine />
+                <p className={css.ProductInfo}>{car.model}</p> <SvgLine />
+                <p className={css.ProductInfo}>{car.id}</p> <SvgLine />
+                <p className={css.ProductInfo}>
+                  {car.accessories.map(part => part.trim())[1]}
+                </p>{' '}
+              </div>
+              <button
+                type="button"
+                className={css.LearnMore}
+                onClick={() => {}}
+              >
+                Learn more
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>{' '}
+    </>
   );
 }

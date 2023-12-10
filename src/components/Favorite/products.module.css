@@ -11,20 +11,18 @@
   top: 14px;
   z-index: 10;
 }
-.addToCart {
-  background-color: transparent;
-  border: 0;
-  position: relative;
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 14px;
-  top: 14px;
-  z-index: 10;
+.addToCartIcon {
+  stroke: white;
+  stroke-opacity: 0.8;
+  fill: none;
+  width: 18px;
+  height: 18px;
+  transition: fill var(--transition-250);
+  vertical-align: middle;
 }
-
+.addToCart:hover .addToCartIcon {
+  fill: rgba(52, 112, 255, 1);
+}
 .addToCart:hover,
 .addToCart:focus {
   cursor: pointer;
@@ -148,31 +146,11 @@
   /* flex-direction: column; */
   align-items: flex-start;
   flex-wrap: wrap;
-  row-gap: 4px;
+  gap: 4px;
   overflow: hidden;
   margin-bottom: 28px;
-  /* max-height: 40px; */
 }
 .ProductInfo {
-  text-transform: none;
-  color: rgba(18, 20, 23, 0.5);
-  font-family: Manrope;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  padding-left: 6px;
-  padding-right: 6px;
-  /* text-transform: none; */
-  /* margin: 0; */
-  /* max-height: 20px; */
-  max-width: 130px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: clip;
-}
-.ProductInfoW {
-  text-transform: none;
   color: rgba(18, 20, 23, 0.5);
   font-family: Manrope;
   font-size: 12px;
@@ -182,9 +160,7 @@
   padding-left: 6px;
   padding-right: 6px;
   text-transform: capitalize;
-  margin: 0;
 }
-
 /* .ProductInfo:not(:last-child) {
   border-right: 1px solid rgba(18, 20, 23, 0.5);
   stroke-width: 1px;
