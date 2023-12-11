@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/tech-project/static/css/main.05b22e0d.css",
-    "main.js": "/tech-project/static/js/main.40a6b8d1.js",
+    "main.css": "/tech-project/static/css/main.93e979e3.css",
+    "main.js": "/tech-project/static/js/main.a8bd0c1d.js",
     "static/js/787.f8dfde5b.chunk.js": "/tech-project/static/js/787.f8dfde5b.chunk.js",
-    "static/media/photo_2023-11-28_09-57-43.jpg": "/tech-project/static/media/photo_2023-11-28_09-57-43.e15b607501dc21181381.jpg",
-    "static/media/photo_2023-11-28_09-57-32.jpg": "/tech-project/static/media/photo_2023-11-28_09-57-32.e0e94d1203512fc7e860.jpg",
+    "static/media/pexels-mike-bird-170811.jpg": "/tech-project/static/media/pexels-mike-bird-170811.cfb63a06fae6c231d471.jpg",
+    "static/media/pexels-albert-nunez-88630.jpg": "/tech-project/static/media/pexels-albert-nunez-88630.4f5913e3e677dbd64f74.jpg",
     "index.html": "/tech-project/index.html",
-    "main.05b22e0d.css.map": "/tech-project/static/css/main.05b22e0d.css.map",
-    "main.40a6b8d1.js.map": "/tech-project/static/js/main.40a6b8d1.js.map",
+    "main.93e979e3.css.map": "/tech-project/static/css/main.93e979e3.css.map",
+    "main.a8bd0c1d.js.map": "/tech-project/static/js/main.a8bd0c1d.js.map",
     "787.f8dfde5b.chunk.js.map": "/tech-project/static/js/787.f8dfde5b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.05b22e0d.css",
-    "static/js/main.40a6b8d1.js"
+    "static/css/main.93e979e3.css",
+    "static/js/main.a8bd0c1d.js"
   ]
 }
