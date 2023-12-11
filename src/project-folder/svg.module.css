@@ -43,3 +43,12 @@
 .active:focus {
   cursor: pointer;
 }
+
+.CloseBtn {
+  stroke: #121417;
+  width: 24px;
+  height: 24px;
+}
+.CloseBtn:hover {
+  stroke: #1214179a;
+}

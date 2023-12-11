@@ -11,6 +11,21 @@ const handleRejected = (state, action) => {
   state.adverts.error = action.payload;
 };
 
+const hendleFulfield = (state, action) => {
+  state.adverts.isLoading = false;
+  state.adverts.error = null;
+
+  const newItems = action.payload;
+  newItems.forEach(newItem => {
+    const existingItemIndex = state.adverts.items.findIndex(
+      item => item.id === newItem.id
+    );
+    if (existingItemIndex === -1) {
+      state.adverts.items.push(newItem);
+    }
+  });
+};
+
 export const advertsSlice = createSlice({
   name: 'adverts',
   initialState: advertsState,
@@ -18,36 +33,13 @@ export const advertsSlice = createSlice({
     updateFilter: (state, action) => {
       state.filter = action.payload;
     },
-    // delContact: (state, action) => {
-    //   state.adverts.items = action.payload;
-    // },
   },
 
   extraReducers: builder => {
     builder
       .addCase(fetchCars.pending, handlePending)
-      .addCase(fetchCars.fulfilled, (state, action) => {
-        state.adverts.isLoading = false;
-        state.adverts.error = null;
-        state.adverts.items = action.payload;
-      })
+      .addCase(fetchCars.fulfilled, hendleFulfield)
       .addCase(fetchCars.rejected, handleRejected);
-
-    // .addCase(addContact.pending, handlePending)
-    // .addCase(addContact.fulfilled, (state, action) => {
-    //   state.adverts.isLoading = false;
-    //   state.adverts.error = null;
-    //   state.adverts.items.push(action.payload);
-    // })
-    // .addCase(addContact.rejected, handleRejected)
-
-    // .addCase(deleteContact.pending, handlePending)
-    // .addCase(deleteContact.fulfilled, (state, action) => {
-    //   state.adverts.isLoading = false;
-    //   state.adverts.error = null;
-    //   state.adverts.items.filter(contact => contact.id !== action.payload);
-    // })
-    // .addCase(deleteContact.rejected, handleRejected);
   },
 });
 

@@ -17,8 +17,8 @@ import { reducer } from './reducer';
 const persistConfig = {
   key: 'favorite',
   storage,
-  // whitelist: [],
-  blacklst: [],
+  whitelist: ['favorite'],
+  // blacklst: [],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

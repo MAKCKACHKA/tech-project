@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import css from './products.module.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,8 +6,9 @@ import { selectFavorite } from 'redux with mockapi/adverts/selesctors';
 import { removeProduct } from 'redux with mockapi/adverts/favoriteSlice';
 import { SvgLikeActive, SvgLine } from 'project-folder/Svg';
 import { ToastContainer, toast } from 'react-toastify';
+import ModalW from 'components/Modal/Modal';
 
-export default function FavoriteList({ sum, setSum }) {
+export default function FavoriteList() {
   const dispatch = useDispatch();
   const favorite = useSelector(selectFavorite);
   const Removed = () => toast('Car removed from favorites!');
@@ -19,6 +20,9 @@ export default function FavoriteList({ sum, setSum }) {
   const handleRemove = id => {
     dispatch(removeProduct(id));
   };
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [carData, setcarData] = useState({});
 
   return (
     <>
@@ -75,14 +79,26 @@ export default function FavoriteList({ sum, setSum }) {
               <button
                 type="button"
                 className={css.LearnMore}
-                onClick={() => {}}
+                onClick={() => {
+                  setcarData(car);
+                  setIsOpenModal(true);
+                  console.log(isOpenModal, carData);
+                }}
               >
                 Learn more
               </button>
             </div>
           </li>
         ))}
-      </ul>{' '}
+      </ul>
+
+      {isOpenModal && (
+        <ModalW
+          isOpenModal={isOpenModal}
+          setIsOpenModal={setIsOpenModal}
+          carData={carData}
+        />
+      )}
     </>
   );
 }

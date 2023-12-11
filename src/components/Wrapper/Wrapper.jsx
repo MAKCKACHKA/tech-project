@@ -85,7 +85,7 @@ export default function Wrapper() {
               </li>
             </ul>
           </address> */}
-          <Link to="/tech-project/buy" end="true" className={css.link}>
+          <Link to="/tech-project/favorites" end="true" className={css.link}>
             {/* <FiShoppingCart className={css.cartIcon} /> */}
             {/* {Number(cart.length) >= 1 && (
               <p className={css.cartIconInfo}>{Number(cart.length)}</p>

@@ -146,3 +146,15 @@
 .Rental:hover {
   background: #0b44cd;
 }
+.CloseBtn {
+  background-color: transparent;
+  border: transparent;
+  z-index: 10;
+  position: absolute;
+  top: -30px;
+  right: -28px;
+}
+
+.ModalB {
+  position: relative;
+}

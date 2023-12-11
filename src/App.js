@@ -33,16 +33,17 @@ import Favorite from './pages/Buy';
 
 import './styles/main.css';
 import './styles/root.css';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchCars } from 'redux with mockapi/operations';
+// import { useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
+// import { fetchCars } from 'redux with mockapi/operations';
 
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchCars());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchCars());
+  // }, [dispatch]);
+
   return (
     <div className="App">
       <Routes>
@@ -50,7 +51,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="catalog" element={<Catalog />} />
           {/* <Route path="catalog:id" element={<Catalog />} /> */}
-          <Route path="buy" element={<Favorite />} />
+          <Route path="favorites" element={<Favorite />} />
           <Route path="*" element={<Navigate raplce to="/tech-project" />} />
         </Route>
       </Routes>

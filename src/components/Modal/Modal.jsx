@@ -1,7 +1,7 @@
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import css from './modal.module.css';
-import { SvgLine } from 'project-folder/Svg';
+import { CloseBtn, SvgLine } from 'project-folder/Svg';
 import './modal.css';
 export default function ModalW({ isOpenModal, setIsOpenModal, carData }) {
   const handleClose = () => setIsOpenModal(false);
@@ -18,15 +18,17 @@ export default function ModalW({ isOpenModal, setIsOpenModal, carData }) {
       <Modal
         show={isOpenModal}
         onHide={handleClose}
-        // dialogClassName={css.Modal}
-        aria-labelledby="example-custom-modal-styling-title"
-        // centered
-        // animation={true}
+        // dialogClassName="modal-lg"
+        // aria-labelledby="example-custom-modal-styling-title"
+        centered
+        animation={true}
       >
-        <Modal.Header closeButton>
-          {/* <Modal.Title>Modal heading</Modal.Title> */}
-        </Modal.Header>
-        <Modal.Body className={css.ModalB}>
+        {/* <Modal.Header closeButton></Modal.Header> */}
+
+        <Modal.Body>
+          <button type="button" className={css.CloseBtn} onClick={handleClose}>
+            <CloseBtn className={css.CloseBtnIcon} />
+          </button>
           <div className={css.imgeWrapper}>
             <img
               src={carData.img}

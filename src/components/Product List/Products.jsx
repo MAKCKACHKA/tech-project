@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import css from './products.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-// import { addProduct } from 'redux/parfums/shopingSlice';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,6 +16,7 @@ import {
 } from 'redux with mockapi/adverts/favoriteSlice';
 import { SvgLike, SvgLikeActive, SvgLine } from 'project-folder/Svg';
 import ModalW from 'components/Modal/Modal';
+import { fetchCars } from 'redux with mockapi/operations';
 
 const Added = () => toast('Car added to favorites!');
 const Removed = () => toast('Car removed from favorites!');
@@ -25,16 +25,27 @@ export default function Products() {
   const adverts = useSelector(selectAdverts);
   const favorite = useSelector(selectFavorite);
 
-  useEffect(() => {
-    console.log(adverts);
-  }, []);
+  // let advertsArray = adverts;
 
-  useEffect(() => {
-    console.log(favorite);
-  }, [favorite]);
+  // useEffect(() => {
+  //   console.log(advertsArray);
+  // }, [advertsArray]);
 
-  // const cart = useSelector(state => state.cart.items);
+  // const Upload = data => {
+  //   advertsArray = [...advertsArray, ...data];
+  //   console.log(data);
+  // };
+
+  const [page, setPage] = useState(1);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [carData, setcarData] = useState({});
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCars(page));
+  }, [dispatch, page]);
+
   const handleAdd = product => {
     dispatch(addProduct(product));
   };
@@ -42,13 +53,34 @@ export default function Products() {
     dispatch(removeProduct(id));
   };
 
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [carData, setcarData] = useState({});
+  useEffect(() => {
+    setAllAdverts(adverts);
+  }, [adverts]);
+
+  const [allAdverts, setAllAdverts] = useState(adverts); // Додано стан для збереження всіх оголошень
+  useEffect(() => {
+    // При завантаженні нової сторінки додаємо оголошення до загального списку
+    // setTimeout(() => {
+    //   setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
+    // }, 10);
+    // console.log(allAdverts);
+  }, [adverts]);
+
+  const loadMore = async () => {
+    setPage(page + 1);
+    setTimeout(() => {
+      setAllAdverts(prevAdverts => [...adverts, ...prevAdverts]);
+    }, 40);
+    // Upload(adverts);
+    // console.log(advertsArray);
+    // await fetchCars(page);
+  };
 
   return (
     <>
       <ToastContainer />
       <ul className={css.ProductList}>
+        {/* {allAdverts.map(car => ( */}
         {adverts.map(car => (
           <li key={car.id} className={css.ProductListItem}>
             <div className={css.imgWrapper}>
@@ -118,7 +150,7 @@ export default function Products() {
                 onClick={() => {
                   setcarData(car);
                   setIsOpenModal(true);
-                  console.log(isOpenModal, carData);
+                  // console.log(isOpenModal, carData);
                 }}
               >
                 Learn more
@@ -127,9 +159,18 @@ export default function Products() {
           </li>
         ))}
       </ul>
-      <button type="button" className={css.LoadMore}>
-        Load more
-      </button>
+      {page !== 3 && (
+        <button
+          type="button"
+          className={css.LoadMore}
+          onClick={() => {
+            loadMore();
+            // console.log(adverts);
+          }}
+        >
+          Load more
+        </button>
+      )}{' '}
       {isOpenModal && (
         <ModalW
           isOpenModal={isOpenModal}
