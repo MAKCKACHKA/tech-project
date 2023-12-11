@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCars } from '../operations';
+import { fetchCars, fetchFiltered } from '../operations';
 import { advertsState } from './advertsState';
 
 const handlePending = state => {
@@ -39,7 +39,14 @@ export const advertsSlice = createSlice({
     builder
       .addCase(fetchCars.pending, handlePending)
       .addCase(fetchCars.fulfilled, hendleFulfield)
-      .addCase(fetchCars.rejected, handleRejected);
+      .addCase(fetchCars.rejected, handleRejected)
+      .addCase(fetchFiltered.pending, handlePending)
+      .addCase(fetchFiltered.fulfilled, (state, action) => {
+        state.adverts.isLoading = false;
+        state.adverts.error = null;
+        state.adverts.items = action.payload;
+      })
+      .addCase(fetchFiltered.rejected, handleRejected);
   },
 });
 

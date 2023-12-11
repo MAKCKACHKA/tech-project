@@ -1,5 +1,3 @@
-// import { useState } from "react";
-// import "./App.css";
 import Hero from '../components/Hero/Hero';
 import Slider from '../components/Slider/Slider';
 import Top from '../components/Top Sales/Top';

@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {
   selectAdverts,
   selectFavorite,
+  selectIsLoading,
 } from 'redux with mockapi/adverts/selesctors';
 import {
   addProduct,
@@ -16,25 +17,21 @@ import {
 } from 'redux with mockapi/adverts/favoriteSlice';
 import { SvgLike, SvgLikeActive, SvgLine } from 'project-folder/Svg';
 import ModalW from 'components/Modal/Modal';
-import { fetchCars } from 'redux with mockapi/operations';
+import { fetchCars, fetchFiltered } from 'redux with mockapi/operations';
 
 const Added = () => toast('Car added to favorites!');
 const Removed = () => toast('Car removed from favorites!');
 
-export default function Products() {
+export default function Products({ isFiltered, filtered }) {
   const adverts = useSelector(selectAdverts);
   const favorite = useSelector(selectFavorite);
+  const isLoading = useSelector(selectIsLoading);
 
-  // let advertsArray = adverts;
-
-  // useEffect(() => {
-  //   console.log(advertsArray);
-  // }, [advertsArray]);
-
-  // const Upload = data => {
-  //   advertsArray = [...advertsArray, ...data];
-  //   console.log(data);
-  // };
+  useEffect(() => {
+    if (filtered.length !== 0) {
+      console.log(...filtered);
+    }
+  }, [filtered]);
 
   const [page, setPage] = useState(1);
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -46,6 +43,16 @@ export default function Products() {
     dispatch(fetchCars(page));
   }, [dispatch, page]);
 
+  useEffect(() => {
+    if (isFiltered) {
+      setTimeout(() => {
+        dispatch(fetchFiltered());
+        console.log(isFiltered);
+        setPage(3);
+      }, 100);
+    }
+  }, [dispatch, isFiltered]);
+
   const handleAdd = product => {
     dispatch(addProduct(product));
   };
@@ -54,129 +61,113 @@ export default function Products() {
   };
 
   useEffect(() => {
-    setAllAdverts(adverts);
-  }, [adverts]);
-
-  const [allAdverts, setAllAdverts] = useState(adverts); // Додано стан для збереження всіх оголошень
-  useEffect(() => {
-    // При завантаженні нової сторінки додаємо оголошення до загального списку
-    // setTimeout(() => {
-    //   setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
-    // }, 10);
-    // console.log(allAdverts);
+    console.log(adverts);
   }, [adverts]);
 
   const loadMore = async () => {
     setPage(page + 1);
-    setTimeout(() => {
-      setAllAdverts(prevAdverts => [...adverts, ...prevAdverts]);
-    }, 40);
-    // Upload(adverts);
-    // console.log(advertsArray);
-    // await fetchCars(page);
   };
 
   return (
     <>
-      <ToastContainer />
-      <ul className={css.ProductList}>
-        {/* {allAdverts.map(car => ( */}
-        {adverts.map(car => (
-          <li key={car.id} className={css.ProductListItem}>
-            <div className={css.imgWrapper}>
-              {!favorite.some(item => item.id === car.id) ? (
-                <button
-                  type="button"
-                  className={css.addToCart}
-                  onClick={() => {
-                    handleAdd(car);
-                    Added();
-                  }}
-                >
-                  {/* <FiShoppingCart className={css.addToCartIcon} /> */}
-                  <SvgLike />
-                  {/* <SvgLikeActive /> */}
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className={css.addToCart}
-                  onClick={() => {
-                    handleRemove(car.id);
-                    Removed();
-                  }}
-                >
-                  {/* <FiShoppingCart className={css.addToCartIcon} /> */}
-                  {/* <SvgLike /> */}
-                  <SvgLikeActive />
-                </button>
-              )}
+      {!isLoading ? (
+        <>
+          <ToastContainer />
+          <ul className={css.ProductList}>
+            {(isFiltered ? filtered : adverts).map(car => (
+              <li key={car.id} className={css.ProductListItem}>
+                <div className={css.imgWrapper}>
+                  {!favorite.some(item => item.id === car.id) ? (
+                    <button
+                      type="button"
+                      className={css.add}
+                      onClick={() => {
+                        handleAdd(car);
+                        Added();
+                      }}
+                    >
+                      <SvgLike />
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className={css.add}
+                      onClick={() => {
+                        handleRemove(car.id);
+                        Removed();
+                      }}
+                    >
+                      <SvgLikeActive />
+                    </button>
+                  )}
 
-              <div className={css.prodImg}>
-                <img src={car.img} alt={car.make + ' ' + car.model} />
-              </div>
-            </div>
-            <div className={css.ProductText}>
-              <div className={css.TitleContainer}>
-                <h3 className={css.ProductItemTitle}>
-                  {car.make}{' '}
-                  <span className={css.TitleModel}>{car.model},</span>{' '}
-                  {car.year}
-                </h3>
-                <h4 className={css.TitlePrice}>{car.rentalPrice}</h4>
-              </div>
-              <div className={css.TextContainer}>
-                <p className={css.ProductInfo}>
-                  {car.address.split(',').map(part => part.trim())[1]}
-                </p>
-                <SvgLine />
-                <p className={css.ProductInfo}>
-                  {car.address.split(',').map(part => part.trim())[2]}
-                </p>{' '}
-                <SvgLine />
-                <p className={css.ProductInfo}>{car.rentalCompany}</p>{' '}
-                <SvgLine />
-                {/* <p className={css.ProductInfo}>{car.rentalCompany},</p> */}
-                <p className={css.ProductInfo}>{car.type}</p> <SvgLine />
-                <p className={css.ProductInfo}>{car.model}</p> <SvgLine />
-                <p className={css.ProductInfo}>{car.id}</p> <SvgLine />
-                <p className={css.ProductInfo}>
-                  {car.accessories.map(part => part.trim())[1]}
-                </p>{' '}
-              </div>
-              <button
-                type="button"
-                className={css.LearnMore}
-                onClick={() => {
-                  setcarData(car);
-                  setIsOpenModal(true);
-                  // console.log(isOpenModal, carData);
-                }}
-              >
-                Learn more
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
-      {page !== 3 && (
-        <button
-          type="button"
-          className={css.LoadMore}
-          onClick={() => {
-            loadMore();
-            // console.log(adverts);
-          }}
-        >
-          Load more
-        </button>
-      )}{' '}
-      {isOpenModal && (
-        <ModalW
-          isOpenModal={isOpenModal}
-          setIsOpenModal={setIsOpenModal}
-          carData={carData}
-        />
+                  <div className={css.prodImg}>
+                    <img src={car.img} alt={car.make + ' ' + car.model} />
+                  </div>
+                </div>
+                <div className={css.ProductText}>
+                  <div className={css.TitleContainer}>
+                    <h3 className={css.ProductItemTitle}>
+                      {car.make}{' '}
+                      <span className={css.TitleModel}>{car.model},</span>{' '}
+                      {car.year}
+                    </h3>
+                    <h4 className={css.TitlePrice}>{car.rentalPrice}</h4>
+                  </div>
+                  <div className={css.TextContainer}>
+                    <p className={css.ProductInfo}>
+                      {car.address.split(',').map(part => part.trim())[1]}
+                    </p>
+                    <SvgLine />
+                    <p className={css.ProductInfo}>
+                      {car.address.split(',').map(part => part.trim())[2]}
+                    </p>{' '}
+                    <SvgLine />
+                    <p className={css.ProductInfo}>{car.rentalCompany}</p>{' '}
+                    <SvgLine />
+                    <p className={css.ProductInfo}>{car.type}</p> <SvgLine />
+                    <p className={css.ProductInfo}>{car.model}</p> <SvgLine />
+                    <p className={css.ProductInfo}>{car.id}</p> <SvgLine />
+                    <p className={css.ProductInfo}>
+                      {car.accessories.map(part => part.trim())[1]}
+                    </p>{' '}
+                  </div>
+                  <button
+                    type="button"
+                    className={css.LearnMore}
+                    onClick={() => {
+                      setcarData(car);
+                      setIsOpenModal(true);
+                    }}
+                  >
+                    Learn more
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+          {page !== 3 && (
+            <button
+              type="button"
+              className={css.LoadMore}
+              onClick={() => {
+                loadMore();
+                // console.log(adverts);
+              }}
+            >
+              Load more
+            </button>
+          )}{' '}
+          {isOpenModal && (
+            <ModalW
+              isOpenModal={isOpenModal}
+              setIsOpenModal={setIsOpenModal}
+              carData={carData}
+            />
+          )}
+        </>
+      ) : (
+        <h2 className="Loading">Loading...</h2>
       )}
     </>
   );

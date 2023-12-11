@@ -4,5 +4,4 @@ export const advertsState = {
     isLoading: false,
     error: null,
   },
-  filter: '',
 };

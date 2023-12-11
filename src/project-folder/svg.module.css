@@ -9,7 +9,7 @@
   position: absolute;
   right: 14px;
   top: 14px;
-  z-index: 10;
+  /* z-index: 10; */
 }
 
 .addToCartIcon {

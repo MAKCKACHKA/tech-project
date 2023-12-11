@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import css from './modal.module.css';
 import { CloseBtn, SvgLine } from 'project-folder/Svg';
 import './modal.css';
+
 export default function ModalW({ isOpenModal, setIsOpenModal, carData }) {
   const handleClose = () => setIsOpenModal(false);
 

@@ -1,4 +1,4 @@
-.addToCart {
+.add {
   background-color: transparent;
   border: 0;
   position: relative;
@@ -11,7 +11,7 @@
   top: 14px;
   z-index: 10;
 }
-.addToCart {
+.add {
   background-color: transparent;
   border: 0;
   position: relative;
@@ -25,8 +25,8 @@
   z-index: 10;
 }
 
-.addToCart:hover,
-.addToCart:focus {
+.add:hover,
+.add:focus {
   cursor: pointer;
 }
 .active {
@@ -45,47 +45,13 @@
   cursor: pointer;
 }
 
-/* ////////////////////////////////////// */
-
-/* @media screen and (max-width: 418px) {
-  .ProductList {
-    gap: 16px;
-  }
-
-  .ProductListItem {
-    width: 116px;
-  }
-}
-
-@media screen and (min-width: 418px) {
-  .ProductList {
-    gap: 38px;
-  }
-
-  .ProductListItem {
-    width: 176px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .ProductList {
-    column-gap: 24px;
-    row-gap: 42px;
-  }
-  .ProductListItem {
-    width: 205px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .ProductList {
-    row-gap: 48px;
-  }
-} */
 .ProductList {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 29px;
+  padding: 0;
 }
 
 .ProductListItem {

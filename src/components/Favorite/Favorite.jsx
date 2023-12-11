@@ -39,8 +39,6 @@ export default function FavoriteList() {
                   Removed();
                 }}
               >
-                {/* <FiShoppingCart className={css.addToCartIcon} /> */}
-                {/* <SvgLike /> */}
                 <SvgLikeActive />
               </button>
 
@@ -68,7 +66,6 @@ export default function FavoriteList() {
                 <SvgLine />
                 <p className={css.ProductInfo}>{car.rentalCompany}</p>{' '}
                 <SvgLine />
-                {/* <p className={css.ProductInfo}>{car.rentalCompany},</p> */}
                 <p className={css.ProductInfo}>{car.type}</p> <SvgLine />
                 <p className={css.ProductInfo}>{car.model}</p> <SvgLine />
                 <p className={css.ProductInfo}>{car.id}</p> <SvgLine />
