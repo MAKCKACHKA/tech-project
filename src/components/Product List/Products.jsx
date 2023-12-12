@@ -71,7 +71,7 @@ export default function Products({ isFiltered, filtered }) {
   return (
     <>
       {!isLoading ? (
-        <>
+        <div className={css.container}>
           <ToastContainer />
           <ul className={css.ProductList}>
             {(isFiltered ? filtered : adverts).map(car => (
@@ -165,9 +165,12 @@ export default function Products({ isFiltered, filtered }) {
               carData={carData}
             />
           )}
-        </>
+        </div>
       ) : (
         <h2 className="Loading">Loading...</h2>
+      )}
+      {isFiltered & (filtered.length === 0) && (
+        <h2 className="Loading">Not found</h2>
       )}
     </>
   );

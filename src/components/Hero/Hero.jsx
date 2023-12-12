@@ -10,24 +10,19 @@ export default function Hero() {
     <Swiper
       slidesPerView={1}
       spaceBetween={30}
-      loop={true}
+      // loop={true}
       grabCursor={true}
       className="mySwiper"
+      navigation={true}
     >
       <SwiperSlide>
         <div className={[css.heroSection, css.bgImg1].join(' ')}>
-          <div className={css.heroContainer}>
-            <h1 className={css.heroTitle}>
-              FAVORITE AROMAA - це можливість пахнути краще
-            </h1>
-          </div>
+          <div className={css.heroContainer}></div>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className={[css.heroSection, css.bgImg2].join(' ')}>
-          <div className={css.heroContainer}>
-            <h1 className={css.heroTitle}>Знижка 10%</h1>
-          </div>
+          <div className={css.heroContainer}></div>
         </div>
       </SwiperSlide>
     </Swiper>

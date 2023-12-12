@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+Welcome to Liberty Car Rental, your go-to platform for finding and renting the
+car of your dreams! My user-friendly website, deployed on Github pages, utilizes
+a range of cutting-edge technologies to ensure a seamless and personalized car
+rental experience for valued customers.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Technologies Used:
 
-## Available Scripts
+- HTML/CSS: Providing a sleek and responsive design for an enhanced user
+  experience.
+- JavaScript: Powering dynamic and interactive elements on website.
+- React: A robust JavaScript library for building user interfaces, offering a
+  smooth and efficient browsing experience.
+- Axios: Handling HTTP requests to backend server for seamless data retrieval.
+- React Router Dom: Enabling smooth navigation and routing within single-page
+  application.
+- React Select: Enhancing user interactions with customizable select components.
+- Redux: Managing the state of application for efficient data flow and seamless
+  updates.
+- Persist: Ensuring the persistence of Redux state across sessions for a
+  consistent user experience.
+- Swiper: Implementing a modern touch slider for an engaging vehicle browsing
+  experience.
+- MockAPI: Simulating a backend server to handle data requests and provide a
+  realistic environment for testing and development.
+- Bootstrap: Utilized for styling and layout components, ensuring a consistent
+  and responsive design.
+- React-icons: Offering a wide variety of icons to enhance the visual appeal of
+  website.
+- React-toastify: Displaying elegant and customizable toast notifications for a
+  polished user experience.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Explore this platform, discover the perfect car for your needs, and embark on a
+memorable journey with Liberty Car Rental!

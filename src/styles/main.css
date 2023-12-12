@@ -1,8 +1,7 @@
 .Loading {
-  margin-left: auto;
-  margin-right: auto;
   padding-top: 100px;
   padding-bottom: 200px;
+  text-align: center;
 }
 
 ::-webkit-scrollbar {

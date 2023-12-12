@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import css from './products.module.css';
+import css from './product-fav.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorite } from 'redux with mockapi/adverts/selesctors';
 import { removeProduct } from 'redux with mockapi/adverts/favoriteSlice';
@@ -88,6 +88,8 @@ export default function FavoriteList() {
           </li>
         ))}
       </ul>
+
+      {favorite.length === 0 && <h2 className="Loading">Empty</h2>}
 
       {isOpenModal && (
         <ModalW

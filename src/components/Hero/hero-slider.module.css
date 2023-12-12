@@ -1,8 +1,7 @@
 .heroSection {
   width: 100%;
   color: var(--white-color);
-  padding-top: 112px;
-  padding-bottom: 108px;
+  height: 300px;
 }
 
 .bgImg1 {
@@ -10,7 +9,7 @@
       var(--hero-backgroundd-color),
       var(--hero-backgroundd-color)
     ),
-    url('../../project-folder/images/photo_2023-11-28_09-57-32.jpg');
+    url('../../project-folder/images/pexels-albert-nunez-88630.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -21,7 +20,7 @@
       var(--hero-backgroundd-color),
       var(--hero-backgroundd-color)
     ),
-    url('../../project-folder/images/photo_2023-11-28_09-57-43.jpg');
+    url('../../project-folder/images/pexels-mike-bird-170811.jpg');
 }
 
 .heroContainer {
